@@ -9,20 +9,20 @@ hole.addEventListener('click', (event) => {
         const holeGame = event.target;
 
         if (holeGame.classList.contains('hole_has-mole')){
-          clickerLost++;
-          dead.textContent = clickerLost;
-        } else {
           clickerDead++;
-          lost.textContent = clickerDead;
+          dead.textContent = clickerDead;
+        } else {
+          clickerLost++;
+          lost.textContent = clickerLost;
         } 
 
-        if (clickerLost === 10) {
+        if (clickerDead === 10) {
           alert('Выигрыш УРААА!!!!');
           lost.textContent = clickerLost = 0;
           dead.textContent = clickerDead = 0;
         }
 
-        if (clickerDead === 5) {
+        if (clickerLost === 5) {
           alert('Ты проиграл. (фу)');
           lost.textContent = clickerLost = 0;
           dead.textContent = clickerDead = 0;
