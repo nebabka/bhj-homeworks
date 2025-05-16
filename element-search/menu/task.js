@@ -1,6 +1,22 @@
-const menu = document.querySelectorAll('.menu_main');
-//const linkCompany = menu.querySelector('.menu__item > a.menu__link')[1];
-//const linkServices = menu.querySelector('.menu__item > a.menu__link')[2];
+const menuLinks = document.querySelectorAll('.menu_main > .menu__item > .menu__link');
 
-const companyLinks = document.querySelectorAll('.menu__item:nth-child(1) > ul.menu_sub > li.menu__item > a.menu__link');
-const servicesLinks = document.querySelectorAll('.menu__item:nth-child(2) > ul.menu_sub > li.menu__item > a.menu__link');
+for(let link of menuLinks) {
+     link.addEventListener("click", function(event){
+         const previousList = document.querySelector(".menu_sub.menu_active");
+         const list = this.parentElement.querySelector('.menu_sub');
+        
+         if(previousList) {
+             previousList.classList.toggle('menu_active');
+             if(Object.is(list, previousList)) {
+                 event.preventDefault();
+                 return;
+             }
+         }
+
+         if(!list) {
+             return;
+         }
+         event.preventDefault();
+         list.classList.toggle('menu_active');
+     });
+};
