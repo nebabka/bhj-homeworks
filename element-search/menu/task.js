@@ -1,7 +1,7 @@
 const menuLinks = document.querySelectorAll('.menu_main > .menu__item > .menu__link');
 
 for(let link of menuLinks) {
-     link.addEventListener("click", function(event){
+     link.addEventListener("click", function(event) {
          const previousList = document.querySelector(".menu_sub.menu_active");
          const list = this.parentElement.querySelector('.menu_sub');
         
